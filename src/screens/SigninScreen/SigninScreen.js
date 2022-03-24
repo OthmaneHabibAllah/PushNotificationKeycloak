@@ -8,6 +8,13 @@ const SigninScreen = () => {
   const {height} = useWindowDimensions();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+
+  const onSignInPressed = () => {
+    console.warn('Sign In');
+  };
+  const onForgotPasswordPressed = () => {
+    console.warn('onForgotPasswordPressed');
+  };
   return (
     <View style={styles.root}>
       <Image
@@ -24,9 +31,14 @@ const SigninScreen = () => {
         placeholder="Password"
         value={password}
         setValue={setPassword}
-        secureTextEntry ={true}
+        secureTextEntry={true}
       />
-      <CustomButton/>
+      <CustomButton text="Sign In" onPress={onSignInPressed} />
+      <CustomButton
+        text="Forgot password"
+        onPress={onForgotPasswordPressed}
+        type="TERTIARY"
+      />
     </View>
   );
 };
